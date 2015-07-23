@@ -3,6 +3,8 @@ var Code = require('code');
 var lab = exports.lab = Lab.script();
 var m = require('../../models');
 
+
+
 lab.experiment('Blog', function() {
     var bilbo = {
         active: true,
@@ -29,6 +31,8 @@ lab.experiment('Blog', function() {
 
     });
 
+
+
     lab.test('Cannot create blog with the same slug', function(done) {
 
 
@@ -40,6 +44,22 @@ lab.experiment('Blog', function() {
         });
 
     });
+
+
+
+    lab.test('Find one and include', function(done) {
+        console.log(m.blog);
+        m.blog.findOne({
+            where: {
+                slug: "bilbo"
+            },
+            include: [m.blog_detail]
+        }).then(function(result) {
+            console.log(result);
+        });
+        done();
+    });
+
 
 
     lab.test('Can delete blog', function(done) {

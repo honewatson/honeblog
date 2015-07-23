@@ -38,13 +38,13 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
         }
     }, {
-        classMethods: {
-            associate: function(models) {
-                blog.hasOne(models.blog_detail, {
-                    as: 'blog_detail'
-                })
-            }
-        },
+        /*       classMethods: {
+                   associate: function(models) {
+                       blog.hasOne(models.blog_detail, {
+                           as: 'blog_detail'
+                       })
+                   },
+               },*/
         timestamps: false,
         tableName: 'blog',
     });
